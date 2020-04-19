@@ -1,4 +1,8 @@
 # blast
+blast is a minimal blog manager. With it, you should be able to create your own blog, host it on the network, and manage/add posts via the browser.
+
+## Progress Pics:
+- [Day1](./src/assets/screenshots/progress-01.png)
 
 ## Project setup
 ```

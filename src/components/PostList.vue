@@ -1,7 +1,20 @@
 <template>
-    <div class="list">
+    <div class="posts">
         <div class="header">
-            <h1>Editing </h1> <input id="title" v-model="title" placeholder="edit me">
+            <h1>Posts</h1>
+        </div>
+
+        <div class="content">
+            <ul id="listOfPosts">
+                <li v-for="post in posts" :key="post.id">
+                    <div class="postInfo">
+                        {{ post.title }}, {{ post.wordcount }} words
+                    </div>
+                    <div v-bind:class="{ green: isPublished }">
+                        {{ post.status }}
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -13,9 +26,44 @@ export default {
   props: {
     msg: String
   },
+
+  // TODO: replace this with data coming back from the database!
+  data() {
+      return {
+          posts: [
+            { id: 1, title: 'Hello World', wordcount: 458, status: 'published'},
+            { id: 2, title: 'Yo fro', wordcount: 15, status: 'draft'}
+          ],
+      }
+  }
 }
+
+
+
 </script>
 
 <style scoped>
+
+#listOfPosts li {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 1rem;
+
+    background: hsl(0, 0%, 71%);
+    list-style-type: none;
+}
+
+#listOfPosts li:hover {
+    cursor: pointer;
+    background: hsl(171, 100%, 41%);
+}
+
+.postInfo {
+
+}
+
+.green {
+    color: green;
+}
 
 </style>

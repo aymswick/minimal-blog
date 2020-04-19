@@ -1,10 +1,19 @@
 <template>
-  <div class="hello">
+  <div class="PostEditor">
     <div class="header">
-      <h1>Editing </h1> <input id="title" v-model="title" placeholder="new post">
+      <h1>Editing</h1> 
+      <input id="title" v-model="title" placeholder="new post">
     </div>
+
+    <!-- Needs to be isolated for Quill styling, but is technically part of the "content" on this page -->
     <vue-editor id="editor" v-model="content"></vue-editor>
-    <button class="button is-primary is-large is-fullwidth" @click="publish()">Publish</button>
+
+    <div class="content">
+      <div class="actions">
+        <button class="button is-light is-large" @click="saveToDrafts()">Save to Drafts</button>
+        <button class="button is-primary is-large" @click="publish()">Publish</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,7 +32,7 @@ export default {
 
   data() {
     return {
-      title: "New Post",
+      title: "",
       content: "<h3>Start typing...</h3>"
     }
   },
@@ -43,21 +52,35 @@ export default {
 
 .quillWrapper {
   margin-bottom: 1rem;
+  text-align: left;
 }
 
-.header h1, input {
-  display: inline-flex;
-  font-family: "Inter";
-  font-size: 4.5rem;
-  font-weight: bold;
+.header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actions button {
+  margin: 1rem;
 }
 
 input {
   border: none;
+  padding: 1rem;
+  font-size: 4rem;
   font-weight: lighter;
-  font-style: italic;
+ 
+  background: hsl(0, 0%, 86%) ;
 }
 
+.ql-active, .ql-fill, .ql-stroke {
+  background: red;
+}
 
 
 

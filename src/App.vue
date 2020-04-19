@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavBar msg="Minimal Blog Editor"/>
-
+    <hr>
     <router-view></router-view>
   </div>
 </template>
@@ -29,14 +29,51 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   padding: 1.5rem;
+  background: hsl(0, 0%, 86%) ;
+}
+
+#navbar {
+  margin-top: -2.5rem;
+}
+
+* {
+  font-family: "Inter" !important;
+}
+
+/* Font Awesome Icons are rendered to these SVGs */
+a svg {
+  margin-right: 1rem;
+}
+
+html {
+  background: hsl(0, 0%, 86%) ;
+}
+
+.header h1{
+  display: flex;
+  justify-content: center;
+  font-size: 4.5rem;
+  font-weight: bold;
+}
+
+hr {
+  background: black;
 }
 
 ::selection {
-  background: hsl(171, 100%, 41%); /* WebKit/Blink Browsers */
+  background: black; /* WebKit/Blink Browsers */
+  color: white;
 }
 ::-moz-selection {
-  background: hsl(171, 100%, 41%); /* Gecko Browsers */
+  background: black; /* Gecko Browsers */
   color: white;
 }
 
+/* Override Bulma's light color */
+.is-light {
+  background: hsl(0, 0%, 86%) !important;
+}
+.is-light:hover {
+  background: hsl(0, 0%, 80%) !important;
+}
 </style>
