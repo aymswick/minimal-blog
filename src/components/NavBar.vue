@@ -4,6 +4,7 @@
       <router-link to="/"><font-awesome-icon icon="home"/>Home</router-link>
       <router-link to="/CreatePost"><font-awesome-icon icon="edit"/>Create</router-link>
       <router-link to="/posts"><font-awesome-icon icon="list"/>Posts</router-link>
+      <router-link to="/viewPost">Test View Post</router-link>
     </nav>
   </div>
 </template>

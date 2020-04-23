@@ -56,6 +56,11 @@ html {
   font-weight: bold;
 }
 
+.header h2 {
+  font-size: 3.5rem;
+  margin-top: 1rem;
+}
+
 hr {
   background: black;
 }

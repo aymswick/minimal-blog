@@ -6,9 +6,17 @@
     </div>
 
     <!-- Needs to be isolated for Quill styling, but is technically part of the "content" on this page -->
-    <vue-editor id="editor" v-model="content"></vue-editor>
+    <vue-editor id="editor" v-model="content" placeholder="Start typing"></vue-editor>
 
     <div class="content">
+      <div class="header">
+        <h2>Preview</h2>
+      </div>
+
+      <div class="preview">
+        <vue-markdown v-html="content"></vue-markdown>
+      </div>
+
       <div class="actions">
         <button class="button is-light is-large" @click="saveToDrafts()">Save to Drafts</button>
         <button class="button is-primary is-large" @click="publish()">Publish</button>
@@ -33,7 +41,7 @@ export default {
   data() {
     return {
       title: "",
-      content: "<h3>Start typing...</h3>"
+      content: ""
     }
   },
 
@@ -53,6 +61,13 @@ export default {
 .quillWrapper {
   margin-bottom: 1rem;
   text-align: left;
+}
+
+.preview {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 1rem;
+  text-align: none;
 }
 
 .header {
